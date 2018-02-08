@@ -1,0 +1,12 @@
+{
+  "name": "filmsfr-api",
+  "version": "1.0.0",
+  "main": "build/dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/dotenv": "^4.0.2",
+    "dotenv": "^5.0.0",
+    "injection-js": "^2.2.1",
+    "typescript": "^2.7.1"
+  }
+}
