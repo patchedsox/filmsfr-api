@@ -3,7 +3,10 @@ interface Configure {
 }
 import { Injector, ReflectiveInjector } from 'injection-js';
 import { config as dotEnvConfig } from 'dotenv';
-import { Server } from 'server';
+
+import { HttpServer } from 'server';
+import { Logger } from 'core/logger';
+import { BodyParser } from 'core/parser';
 
 interface Bootstrap {
   bootstrap(): Run;
@@ -20,6 +23,9 @@ export class Startup implements Configure, Bootstrap, Run {
     dotEnvConfig();
 
     this.injector = ReflectiveInjector.resolveAndCreate([
+      Logger,      
+      BodyParser,
+      HttpServer,
     ]);
 
     return <Bootstrap>this;
@@ -30,7 +36,7 @@ export class Startup implements Configure, Bootstrap, Run {
   }
 
   run() {
-    let server = this.injector.get(Server);
+    let server = this.injector.get(HttpServer);
     server.start();
   }
 }
