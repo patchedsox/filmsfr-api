@@ -7,11 +7,18 @@
     "start": "node ./build/dist/index.js"
   },
   "dependencies": {
+    "@google/maps": "^0.4.5",
     "@types/dotenv": "^4.0.2",
+    "@types/geojson": "^7946.0.1",
+    "@types/googlemaps": "^3.30.5",
+    "@types/lowdb": "^1.0.0",
     "app-module-path": "^2.2.0",
     "dotenv": "^5.0.0",
+    "geojson": "^0.5.0",
     "injection-js": "^2.2.1",
+    "lowdb": "^1.0.0",
     "reflect-metadata": "^0.1.12",
+    "soda-js": "^0.2.3",
     "source-map-support": "^0.5.3",
     "typescript": "^2.7.1"
   }

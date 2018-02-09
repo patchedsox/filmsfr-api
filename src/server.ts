@@ -35,8 +35,9 @@ export class HttpServer {
 
   start() {
     let server = new Server(this.handler.bind(this));
-    server.listen(process.env.HTTP_PORT, () => this.logger.trace(`Server is listening on ${process.env.HTTP_PORT}`));
-    process.on('uncaughtException', (err: Error) => this.logger.trace('Unhandled execption occured', err));
+    server.listen(process.env.APP_HTTP_PORT, () =>
+      this.logger.trace(`Server is listening on ${process.env.APP_HTTP_PORT}`));
+    process.on('uncaughtException', (err: Error) => this.logger.trace('Unhandled exception occurred', err));
   }
 
   private handler(req: IncomingMessage, res: ServerResponse) {
