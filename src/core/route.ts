@@ -13,4 +13,3 @@ export abstract class RouteHandler<I extends RequestBody, O extends ResponseBody
     this.router.register(this.type, this.handler.bind(this));
   }
 }
-  

@@ -34,7 +34,9 @@ export class Startup implements Configure, Bootstrap, Run {
   asyncPreJobs: Promise<void>[] = [];
 
   configure() {
-    dotEnvConfig();
+    if (process.env.NODE_ENV !== 'production') {
+      dotEnvConfig();
+    }
 
     process.env.APP_ROOT_PATH = path.join(__dirname, '../../');
 

@@ -4,13 +4,13 @@
   "main": "build/dist/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./build/dist/index.js",
+    "build": "node ./node_modules/typescript/lib/tsc -p .",
+    "start": "node ./build/dist/index.js --turbo --ignition",
     "watch-gg": "tsc -p ./src/shared/goldengate24k -w",
     "watch-api": "tsc -p ./ -w"
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",
-    "@types/cheap-ruler": "^2.5.0",
     "@types/dotenv": "^4.0.2",
     "@types/geojson": "^7946.0.1",
     "@types/lowdb": "^1.0.0",
