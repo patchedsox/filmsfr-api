@@ -2,17 +2,11 @@ import { Injectable } from 'injection-js';
 import { Logger } from 'core/logger';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import { BodyParser } from 'core/parser';
-import { HttpRequest } from 'shared/goldengate24k';
-import { RequestBody } from 'shared/goldengate24k/src';
+import { RequestBody, ResponseBody } from 'shared/goldengate24k';
+import { Router } from 'core/router';
+import { HttpResponse } from 'shared/goldengate24k/src';
 
-const exposeHeaders = [
-  'cache-control',
-  'content-language',
-  'content-type',
-  'expires',
-  'last-modified',
-  'pragma'
-];
+const exposeHeaders = ['cache-control', 'content-language', 'content-type', 'expires', 'last-modified', 'pragma'];
 
 const allowHeaders = [
   // 'Access-Control-Request-Method',
@@ -31,12 +25,13 @@ const allowHeaders = [
 
 @Injectable()
 export class HttpServer {
-  constructor(private logger: Logger, private bodyParser: BodyParser) { }
+  constructor(private logger: Logger, private bodyParser: BodyParser, private router: Router) { }
 
   start() {
     let server = new Server(this.handler.bind(this));
     server.listen(process.env.APP_HTTP_PORT, () =>
-      this.logger.trace(`Server is listening on ${process.env.APP_HTTP_PORT}`));
+      this.logger.trace(`Server is listening on ${process.env.APP_HTTP_PORT}`)
+    );
     process.on('uncaughtException', (err: Error) => this.logger.trace('Unhandled exception occurred', err));
   }
 
@@ -59,16 +54,17 @@ export class HttpServer {
         res.end();
         return;
       case 'POST':
-        // tslint:disable-next-line:no-console
-        console.log(this);
-        // tslint:disable-next-line:no-console
-        console.log(this.bodyParser);
-        this
-          .bodyParser
-          .parse<HttpRequest<RequestBody>>(req)
-          .then((jsonResult) => {
-            res.writeHead(200);
-            res.write('Hi');
+        this.bodyParser
+          .parse<RequestBody>(req)
+          .then(jsonResult => {
+            this.router.route(jsonResult).then((result) => {
+              res.setHeader('Content-Type', 'application/json');
+              res.writeHead(200);
+              res.end(JSON.stringify(<HttpResponse<ResponseBody>>{
+                body: result,
+                status: 200
+              }));
+            });
           });
         return;
       case 'GET':

@@ -1,23 +1,16 @@
-import { ResponseBody, RequestBody } from 'shared/goldengate24k';
+import { ResponseBody, RequestBody, ActionResponse, Action } from 'shared/goldengate24k';
+import { Router } from 'core/router';
 
-export interface Request<I extends RequestBody> {
-  body: I;
+export interface RouteHandlerFunc<I extends RequestBody, O extends ResponseBody> {
+  (payload: Action<I>): Promise<ActionResponse<O>>;
 }
 
-export interface Response<O extends ResponseBody> {
-  body: O;
-}
-
-export class RouteHandler<I extends RequestBody, O extends ResponseBody> {
+export abstract class RouteHandler<I extends RequestBody, O extends ResponseBody> {
   type?: string;
-  constructor() { this.type = this.constructor.name; }
-  handler(payload: Request<I>): Promise<Response<O>> {
-    throw Error('Not implemented');
+  abstract handler(payload: Action<I>): Promise<ActionResponse<O>>;
+  constructor(private router: Router) {
+    this.type = this.constructor.name;
+    this.router.register(this.type, this.handler.bind(this));
   }
 }
-
-export interface Route {
-  routes: {
-    [handlerName: string]: RouteHandler<RequestBody, ResponseBody>;
-  };
-}
+  

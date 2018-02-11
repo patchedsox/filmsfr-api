@@ -1,9 +1,10 @@
 import { Injectable } from 'injection-js';
 import { IncomingMessage } from 'http';
+import { Action } from 'shared/goldengate24k';
 
 @Injectable()
 export class BodyParser {
-  parse<T>(req: IncomingMessage) {
+  parse<T>(req: IncomingMessage): Promise<Action<T>> {
     return new Promise((resolve, reject) => {
       if (req.headers['Content-Type'] !== 'application/json'
         && req.headers['content-type'] !== 'application/json') {
@@ -17,7 +18,7 @@ export class BodyParser {
       }).on('end', async () => {
         let data = Buffer.concat(body).toString();
         let jsonData = JSON.parse(data);
-        resolve(<T>jsonData);
+        resolve(<Action<T>>jsonData);
       });
     });
   }

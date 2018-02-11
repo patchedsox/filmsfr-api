@@ -1,6 +1,6 @@
 import { Injectable } from 'injection-js';
 import { Logger } from 'core/logger';
-import { FilmLocationSchema } from 'schemas';
+import { FilmLocationSchema } from 'shared/goldengate24k';
 let soda = require('soda-js');
 let consumer = new soda.Consumer('data.sfgov.org');
 

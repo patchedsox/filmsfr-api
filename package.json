@@ -4,22 +4,31 @@
   "main": "build/dist/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./build/dist/index.js"
+    "start": "node ./build/dist/index.js",
+    "watch-gg": "tsc -p ./src/shared/goldengate24k -w",
+    "watch-api": "tsc -p ./ -w"
   },
   "dependencies": {
-    "@google/maps": "^0.4.5",
+    "@turf/turf": "^5.1.6",
+    "@types/cheap-ruler": "^2.5.0",
     "@types/dotenv": "^4.0.2",
     "@types/geojson": "^7946.0.1",
-    "@types/googlemaps": "^3.30.5",
     "@types/lowdb": "^1.0.0",
+    "@types/request": "^2.47.0",
+    "@types/shortid": "^0.0.29",
     "app-module-path": "^2.2.0",
+    "cheap-ruler": "^2.5.1",
     "dotenv": "^5.0.0",
     "geojson": "^0.5.0",
     "injection-js": "^2.2.1",
     "lowdb": "^1.0.0",
+    "mapbox": "^1.0.0-beta9",
     "reflect-metadata": "^0.1.12",
+    "request": "^2.83.0",
+    "shortid": "^2.2.8",
     "soda-js": "^0.2.3",
     "source-map-support": "^0.5.3",
+    "tslint": "^5.9.1",
     "typescript": "^2.7.1"
   }
 }

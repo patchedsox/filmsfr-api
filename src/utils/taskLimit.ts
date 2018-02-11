@@ -33,7 +33,9 @@ export class TaskLimit<T> {
     this.onFinishHandler = handler;
   }
 
-  private onFinishHandler: OnFinishHandler<T | Error> = (results: Array<T | Error>) => { return; };
+  private onFinishHandler: OnFinishHandler<T | Error> = (results: Array<T | Error>) => {
+    return;
+  }
 
   private lift() {
     this.currentNumTasks++;
@@ -51,7 +53,7 @@ export class TaskLimit<T> {
       return this.onFinishHandler(this.results);
     }
     if (typeof result === typeof Error) {
-      this.logger.trace
+      this.logger.trace('Error occurred: ', result);
     }
     this.lift();
   }
