@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node ./node_modules/typescript/lib/tsc -p .",
+    "up": "sh up.sh",
     "start": "node ./build/dist/index.js --turbo --ignition",
     "watch-gg": "tsc -p ./src/shared/goldengate24k -w",
     "watch-api": "tsc -p ./ -w"
