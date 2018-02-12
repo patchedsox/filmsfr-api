@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "build": "node ./node_modules/typescript/lib/tsc -p .",
+    "build:test": "node ./node_modules/typescript/lib/tsc -p ./tsconfig.test.json",
     "up": "sh up.sh",
     "start": "node ./build/dist/index.js --turbo --ignition",
     "watch-gg": "tsc -p ./src/shared/goldengate24k -w",
-    "watch-api": "tsc -p ./ -w"
+    "watch-api": "tsc -p ./ -w",
+    "test": "npm run build:test && node_modules/mocha/bin/_mocha build/dist/**/*.spec.js --colors --bail"
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",

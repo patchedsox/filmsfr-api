@@ -24,12 +24,10 @@
   },
   "include": [
     "src/**/*",
-    "src/shared/**/*.ts",
     "types/*.d.ts",
+    "src/shared/**/*.ts"
   ],
   "exclude": [
-    "src/mocks/**/*",
-    "src/**/*.spec.ts",
     "node_modules",
     "build",
     "scripts"
