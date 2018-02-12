@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 COPY ./build/dist /usr/src/app/build/dist
 COPY ./package.json /usr/src/app/package.json
+COPY ./yarn.lock /usr/src/app/yarn.lock
 COPY ./db/low.json /usr/src/app/db/low.json
 
 RUN yarn --production
