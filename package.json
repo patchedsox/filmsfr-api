@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",
+    "goldengate24k": "git+https://github.com/patchedsox/goldengate24k.git#v1.0.10",
     "@types/dotenv": "^4.0.2",
     "@types/geojson": "^7946.0.1",
     "@types/lowdb": "^1.0.0",
