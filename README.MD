@@ -7,8 +7,6 @@ This is the back-end of "**filmsfr**" project
 #### Important
   This project uses [goldengate24k](https://github.com/patchedsox/goldengate24k) as interface to accommodate requests from [filmsfr-web](https://github.com/patchedsox/filmsfr-web) and to provide shared schemas
 
-  The main difference is, that goldengate24k is included as a sub tree here, under "../shared", in order to make debugging and development easier.
-
   **Test** structure is not yet complete, however included for demonstration purposes. You can find expected improvements to make at the end of this markdown
 
 Click here for [yarn](https://yarnpkg.com/en/docs/install) 
