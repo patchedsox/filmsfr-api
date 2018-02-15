@@ -1,6 +1,6 @@
 import { Injectable } from 'injection-js';
 import { RouteHandlerFunc } from 'core/route';
-import { RequestBody, ResponseBody, Action } from 'shared/goldengate24k';
+import { RequestBody, ResponseBody, Action } from 'goldengate24k';
 
 @Injectable()
 export class Router {

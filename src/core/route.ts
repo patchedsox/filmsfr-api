@@ -1,4 +1,4 @@
-import { ResponseBody, RequestBody, ActionResponse, Action } from 'shared/goldengate24k';
+import { ResponseBody, RequestBody, ActionResponse, Action } from 'goldengate24k';
 import { Router } from 'core/router';
 
 export interface RouteHandlerFunc<I extends RequestBody, O extends ResponseBody> {

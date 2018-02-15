@@ -14,8 +14,8 @@ process.env.APP_ROOT_PATH = join(__dirname, '../../../../');
 
 import { MockRouter, MockDao } from 'mocks';
 import { GetNearbyLocations } from './getNearbyLocations';
-import { Action } from 'shared/goldengate24k';
-import { GetNearbyLocationsRequest } from 'shared/goldengate24k/src';
+import { Action } from 'goldengate24k';
+import { GetNearbyLocationsRequest } from 'goldengate24k/src';
 
 describe('Get nearby locations', function () {
   it('Returns only the ones with coordinates', () => {

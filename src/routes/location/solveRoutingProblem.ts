@@ -1,7 +1,7 @@
 import { RouteHandler } from 'core/route';
-import { SolveRoutingProblemRequest, SolveRoutingProblemResponse, Action } from 'shared/goldengate24k';
+import { SolveRoutingProblemRequest, SolveRoutingProblemResponse, Action } from 'goldengate24k';
 import { Injectable } from 'injection-js';
-import { ActionResponse, FilmLocationSchema } from 'shared/goldengate24k/src';
+import { ActionResponse, FilmLocationSchema } from 'goldengate24k/src';
 import { Router } from 'core/router';
 import { DAO } from 'dao/dao';
 import * as turf from '@turf/turf';

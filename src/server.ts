@@ -2,9 +2,9 @@ import { Injectable } from 'injection-js';
 import { Logger } from 'core/logger';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import { BodyParser } from 'core/parser';
-import { RequestBody, ResponseBody } from 'shared/goldengate24k';
+import { RequestBody, ResponseBody } from 'goldengate24k';
 import { Router } from 'core/router';
-import { HttpResponse } from 'shared/goldengate24k/src';
+import { HttpResponse } from 'goldengate24k/src';
 
 const exposeHeaders = ['cache-control', 'content-language', 'content-type', 'expires', 'last-modified', 'pragma'];
 

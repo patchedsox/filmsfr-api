@@ -1,6 +1,6 @@
 import { Injectable } from 'injection-js';
 import { IncomingMessage } from 'http';
-import { Action } from 'shared/goldengate24k';
+import { Action } from 'goldengate24k';
 
 @Injectable()
 export class BodyParser {

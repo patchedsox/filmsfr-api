@@ -1,4 +1,4 @@
-import { FilmLocationSchema } from 'shared/goldengate24k';
+import { FilmLocationSchema } from 'goldengate24k';
 
 export interface MainSchema {
   filmLocations: FilmLocationSchema[];

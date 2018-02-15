@@ -1,7 +1,7 @@
 import { RouteHandler } from 'core/route';
-import { SearchLocationsRequest, SearchLocationsResponse, Action } from 'shared/goldengate24k';
+import { SearchLocationsRequest, SearchLocationsResponse, Action } from 'goldengate24k';
 import { Injectable } from 'injection-js';
-import { ActionResponse } from 'shared/goldengate24k/src';
+import { ActionResponse } from 'goldengate24k/src';
 import { Router } from 'core/router';
 import { DAO } from 'dao/dao';
 import { TextSearch } from 'utils/textSearch';

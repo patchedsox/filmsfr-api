@@ -1,7 +1,7 @@
 import { LoDashExplicitWrapper } from 'lodash';
 import { Injectable } from 'injection-js';
 import { DbAccess } from 'dao/dbAccess';
-import { FilmLocationSchema } from 'shared/goldengate24k';
+import { FilmLocationSchema } from 'goldengate24k';
 
 @Injectable()
 export class DAO {
