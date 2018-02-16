@@ -42,6 +42,7 @@ yarn up
   - Only implemented test is "getNearbyLocations.spec.ts". Initialization for test environment at the top of that file should be moved to a global context for a more friendly test development experience
 - Improve logger with additional features, enable logging across the application
 - Introduce scheduled updates of the "locations" data from the source
+- Implement scope management helpers around "injection-js" for making IoC scope management, and transient instatiation more intuitive
 
 #### Notes for development
 
