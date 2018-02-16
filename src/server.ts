@@ -40,14 +40,14 @@ export class HttpServer {
     res.setHeader('Access-Control-Allow-Methods', 'HEAD,POST,GET');
     res.setHeader('Access-Control-Allow-Headers', allowHeaders.join(', '));
     res.setHeader('Access-Control-Expose-Headers', exposeHeaders.join(', '));
-    // res.setHeader('Strict-Transport-Security', ['max-age=31536000', 'includeSubDomains', 'preload']);
+    res.setHeader('Strict-Transport-Security', ['max-age=31536000', 'includeSubDomains', 'preload']);
     res.setHeader('Cache-Control', ['no-cache', 'no-store', 'must-revalidate']);
-    // res.setHeader('Pragma', 'no-cache');
-    // res.setHeader('X-XSS-Protection', ['1', 'mode=block']);
-    // res.setHeader('X-Content-Type-Options', 'nosniff');
-    // res.setHeader('X-Frame-Options', 'SAMEORIGIN');
-    // res.setHeader('Expires', '-1');
-    // res.setHeader('Content-Security-Policy', 'script-src \'self\'');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('X-XSS-Protection', ['1', 'mode=block']);
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('Expires', '-1');
+    res.setHeader('Content-Security-Policy', 'script-src \'self\'');
     switch (req.method) {
       case 'OPTIONS':
         res.writeHead(204);
